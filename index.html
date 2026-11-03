@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>opcuareport</title>
+  <meta name="description" content="opcuareport: automatic roll reports from your gauge's OPC UA server.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap nav">
+      <a class="brand" href="#">opcuareport</a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#install">Install</a>
+        <a href="#licence">Licence</a>
+        <a href="#changelog">Changelog</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <h1>Every roll reported automatically.</h1>
+        <p class="lead">opcuareport connects to your gauge's OPC UA server, follows each roll from start to finish and writes its report as soon as the roll ends, with no one at the PC.</p>
+        <a class="btn" href="#download">Download version 2.0.1</a>
+      </div>
+    </section>
+
+    <section id="features" class="wrap">
+      <h2>Features</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Automatic roll reports</h3>
+          <p>A report for every roll, made when the gauge's roll changes. Missed rolls are numbered correctly.</p>
+        </div>
+        <div class="card">
+          <h3>Secure OPC UA connection</h3>
+          <p>Connects with signing and encryption. The client certificate is made automatically on the first start.</p>
+        </div>
+        <div class="card">
+          <h3>Runs by itself</h3>
+          <p>Runs as a Windows service task: starts with the PC and restarts if it stops.</p>
+        </div>
+        <div class="card">
+          <h3>Fits your gauge</h3>
+          <p>Lists every tag your gauge offers, so the report layout can be set up for your gauge without a site visit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="band">
+      <div class="wrap">
+        <h2>Download</h2>
+        <div class="download">
+          <div>
+            <p class="version">Version 2.0.1</p>
+            <p class="muted">Windows 10 / 11, 64-bit &middot; Installer, about 19 MB</p>
+          </div>
+          <a class="btn" href="downloads/opcuareport-Setup-2.0.1.exe" download>Download installer</a>
+        </div>
+        <p class="muted small">Runs without a licence, but reports show only the roll number and times until a licence is installed. See <a href="#licence">Licence</a>.</p>
+      </div>
+    </section>
+
+    <section id="install" class="wrap">
+      <h2>Install</h2>
+      <ol class="steps">
+        <li>Run <code>opcuareport-Setup-2.0.1.exe</code> <strong>as administrator</strong>. It installs to <code>C:\opcuareport</code> and starts the program automatically.</li>
+        <li>Open <code>C:\opcuareport\configuration.txt</code> in Notepad (as administrator) and enter the gauge's IP address.</li>
+        <li>On the gauge, move the <em>opcuareport</em> certificate from <strong>Rejected</strong> to <strong>Trusted</strong>.</li>
+        <li>Install your licence (below).</li>
+        <li>Check the log: Start menu &gt; <em>opcuareport log</em>. It should show <code>Connected to opc.tcp://...</code></li>
+      </ol>
+    </section>
+
+    <section id="licence" class="band">
+      <div class="wrap">
+        <h2>Licence</h2>
+        <p>Each licence is for one PC and lasts 6 months.</p>
+        <ol class="steps">
+          <li>On the PC, open a command prompt and run <code>C:\opcuareport\opcuareport.exe --machine-id</code>. A report made without a licence also shows the machine ID.</li>
+          <li>Email the machine ID and your company name to <a href="mailto:CONTACT_EMAIL?subject=opcuareport%20licence%20request">CONTACT_EMAIL</a>.</li>
+          <li>Copy the <code>license.txt</code> you receive to <code>C:\opcuareport\</code>. It applies from the next roll. No restart is needed.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="changelog" class="wrap">
+      <h2>Changelog</h2>
+      <article class="release">
+        <h3>2.0.1</h3>
+        <ul>
+          <li>Lists all of the gauge's OPC UA tags on the first connection (<code>opc_tags.csv</code>).</li>
+          <li>The software version is shown on every report.</li>
+          <li>Reports made without a licence show the machine ID.</li>
+        </ul>
+      </article>
+      <article class="release">
+        <h3>2.0.0</h3>
+        <ul>
+          <li>Renamed from 8000report to opcuareport. A fresh install is needed; see the install guide.</li>
+          <li>The client certificate is made automatically on the first start.</li>
+          <li>Licensing per PC.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="wrap muted small">
+    &copy; 2026 opcuareport &middot; <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a>
+  </footer>
+</body>
+</html>
